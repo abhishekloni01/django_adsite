@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xdwig&)+tkgtdo+gw&$88cd54y*=r99n*ufg)-4*ci$hor)l#^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['myadsite.herokuapp.com']
 
 
 # Application definition
@@ -131,6 +131,9 @@ STATICFILES_DIRS = [
 ]
 STATIC_ROOT =  os.path.join(BASE_DIR, 'assets')
 
+# Activating django heroku by me
+
+django_heroku.settings(locals())
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
