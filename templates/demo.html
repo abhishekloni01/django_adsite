@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+ {% load static %}
+{% block title %}
+    Demo
+{% endblock title %}
+
+{% block content %}
+
+{% static 'images' as imgurl %}
+    
+{% for i in list_ob%}
+    <div class="group">
+            <img src="{{imgurl}}/{{i.img}}">
+            {% if i.offer == True %}
+            Offer
+            {% else %}
+                No offer this image!
+
+            {% endif %}
+    </div>
+{% endfor %}
+
+
+
+{% endblock content %}
+    
