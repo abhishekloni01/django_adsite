@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-xdwig&)+tkgtdo+gw&$88cd54y*=r99n*ufg)-4*ci$hor)l#^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['myadsite.herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts',
+    'accounts.apps.AccountsConfig',
     'adv.apps.AdvConfig',
 ]
 
@@ -79,12 +79,12 @@ WSGI_APPLICATION = 'adsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME':'adsite_db_demo',
-        'USER':'root',
-        'PASSWORD':'',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME':os.path.join(BASE_DIR,'db.sqlite3'),
+        # 'USER':'root',
+        # 'PASSWORD':'',
+        # 'HOST':'localhost',
+        # 'PORT':'3306',
     }
 }
 
@@ -129,7 +129,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
-STATIC_ROOT =  os.path.join(BASE_DIR, 'assets')
+STATIC_ROOT =  os.path.join(BASE_DIR, 'static')
 
 # Activating django heroku by me
 
