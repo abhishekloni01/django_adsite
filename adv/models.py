@@ -7,7 +7,7 @@ class content:
     para:str
     img:str
 
-class Electronics:
+class Electronics(models.Model):
     img = models.ImageField(upload_to = 'img')
     title = models.CharField(max_length=50)
     desc = models.CharField(max_length=50)

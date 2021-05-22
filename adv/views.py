@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from . models import content,Electronics,Demo,Contact
+from . models import content,Electronics,Contact
 from django.contrib import messages
 
 
@@ -56,52 +56,30 @@ def home(request):
     return render(request, 'index.html', {'bestlist': bestlist, 'whatlist': whatlist, 'banner1':banner1, 'title':title1, 'whattitle': whattitle, 'displaycontact':displaycontact })
 
 
-# def login(request):
-#         return render(request,'login.html')
-
-
-# def register(request):
-#     return render(request, 'register.html')
 
 def electronics(request):
+    list = Electronics.objects.all()
+    return render(request,'electronics.html',{'list':list })
+#     toshiba = Electronics()
+#     toshiba.img = 'toshiba.jfif'
+#     toshiba.title = 'Toshiba'
+#     toshiba.desc = 'toshiba is nice'
+#     toshiba.offer = False
 
-    toshiba = Electronics()
-    toshiba.img = 'toshiba.jfif'
-    toshiba.title = 'Toshiba'
-    toshiba.desc = 'toshiba is nice'
-    toshiba.offer = False
-
-    samsung = Electronics()
-    samsung.img = 'samsung.jfif'
-    samsung.title = 'Samsung'
-    samsung.desc = 'samsung is good'
-    samsung.offer = True
+#     samsung = Electronics()
+#     samsung.img = 'samsung.jfif'
+#     samsung.title = 'Samsung'
+#     samsung.desc = 'samsung is good'
+#     samsung.offer = True
     
-    sony = Electronics()
-    sony.img = 'sony.jfif'
-    sony.title = 'Sony'
-    sony.desc = 'sony is wonderful'
-    sony.offer = True
+#     sony = Electronics()
+#     sony.img = 'sony.jfif'
+#     sony.title = 'Sony'
+#     sony.desc = 'sony is wonderful'
+#     sony.offer = True
 
-    list = [samsung, toshiba, sony]
-    return render(request, 'electronics.html', {'list':list})
-
-def demo(request):
-        obj1 = Demo()
-        obj1.name = "chetan"
-        obj1.lname="g"
-        obj1.img = 'emi.png'
-        obj1.offer = True
-
-        obj2 = Demo()
-        obj2.name = "abhi"
-        obj2.lname="l"
-        obj2.img = 'mycart.jfif'
-        obj2.offer = False
-
-        list_ob = [obj1,obj2]
-        
-        return render(request,'demo.html',{'list_ob':list_ob })
+#     list = [samsung, toshiba, sony]
+#     return render(request, 'electronics.html', {'list':list})
 
 def contact(request):
     if request.method == "POST":
