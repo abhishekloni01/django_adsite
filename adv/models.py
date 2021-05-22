@@ -8,10 +8,11 @@ class content:
     img:str
 
 class Electronics:
-    img:str
-    title:str
-    desc:str
-    offer:bool
+    img = models.ImageField(upload_to = 'img')
+    title = models.CharField(max_length=50)
+    desc = models.CharField(max_length=50)
+    offer = models.BooleanField(default=True)
+    
 
 class Demo:
     name:str
@@ -24,5 +25,6 @@ class Contact(models.Model):
     email = models.EmailField(max_length=254)
     phone = models.IntegerField(default=0)
     msg = models.TextField(max_length=300)
+    
     
     
