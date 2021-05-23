@@ -1,1 +1,1 @@
-web: gunicorn adsite.wsgi
+web: gunicorn adsite_demo.wsgi
