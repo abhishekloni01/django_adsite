@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from . models import content,Electronics,Contact
 from django.contrib import messages
+from PyDictionary import PyDictionary
 
 
 # Create your views here.
@@ -96,4 +97,13 @@ def contact(request):
         return redirect('/')
 
 
-    
+def engdict(request):
+    return render(request,'engdict.html')
+
+def word(request):
+    search = request.GET['search']
+    dictionary = PyDictionary()
+    meanings  = dictionary.meaning(search).get('Noun')
+    antonyms = dictionary.antonym(search)
+    synonyms = dictionary.synonym(search)
+    return render(request, 'word.html', {'search':search, 'meanings':meanings, 'antonyms':antonyms, 'synonyms':synonyms})
